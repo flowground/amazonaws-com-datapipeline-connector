@@ -1,0 +1,198 @@
+{
+    "type": "object",
+    "properties": {
+        "Action": {
+            "required": true,
+            "type": "string"
+        },
+        "Version": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "description": "Contains the parameters for ValidatePipelineDefinition.",
+            "properties": {
+                "parameterObjects": {
+                    "description": "The parameter objects used with the pipeline.",
+                    "items": {
+                        "description": "Contains information about a parameter object.",
+                        "properties": {
+                            "attributes": {
+                                "description": "The attributes of the parameter object.",
+                                "items": {
+                                    "description": "The attributes allowed or specified with a parameter object.",
+                                    "properties": {
+                                        "key": {
+                                            "description": "The field identifier.",
+                                            "maxLength": 256,
+                                            "minLength": 1,
+                                            "type": "string",
+                                            "x-pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*"
+                                        },
+                                        "stringValue": {
+                                            "description": "The field value, expressed as a String.",
+                                            "maxLength": 10240,
+                                            "minLength": 0,
+                                            "type": "string",
+                                            "x-pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*"
+                                        }
+                                    },
+                                    "required": [
+                                        "key",
+                                        "stringValue"
+                                    ],
+                                    "type": "object"
+                                },
+                                "type": "array"
+                            },
+                            "id": {
+                                "description": "The ID of the parameter object. ",
+                                "maxLength": 256,
+                                "minLength": 1,
+                                "type": "string",
+                                "x-pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*"
+                            }
+                        },
+                        "required": [
+                            "id",
+                            "attributes"
+                        ],
+                        "type": "object"
+                    },
+                    "type": "array"
+                },
+                "parameterValues": {
+                    "description": "The parameter values used with the pipeline.",
+                    "items": {
+                        "description": "A value or list of parameter values. ",
+                        "properties": {
+                            "id": {
+                                "description": "The ID of the parameter value.",
+                                "maxLength": 256,
+                                "minLength": 1,
+                                "type": "string",
+                                "x-pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*"
+                            },
+                            "stringValue": {
+                                "description": "The field value, expressed as a String.",
+                                "maxLength": 10240,
+                                "minLength": 0,
+                                "type": "string",
+                                "x-pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*"
+                            }
+                        },
+                        "required": [
+                            "id",
+                            "stringValue"
+                        ],
+                        "type": "object"
+                    },
+                    "type": "array"
+                },
+                "pipelineId": {
+                    "description": "The ID of the pipeline.",
+                    "maxLength": 1024,
+                    "minLength": 1,
+                    "type": "string",
+                    "x-pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*"
+                },
+                "pipelineObjects": {
+                    "description": "The objects that define the pipeline changes to validate against the pipeline.",
+                    "items": {
+                        "description": "Contains information about a pipeline object. This can be a logical, physical, or physical attempt pipeline object. The complete set of components of a pipeline defines the pipeline.",
+                        "properties": {
+                            "fields": {
+                                "description": "Key-value pairs that define the properties of the object.",
+                                "items": {
+                                    "description": "A key-value pair that describes a property of a pipeline object. The value is specified as either a string value (<code>StringValue</code>) or a reference to another object (<code>RefValue</code>) but not as both.",
+                                    "properties": {
+                                        "key": {
+                                            "description": "The field identifier.",
+                                            "maxLength": 256,
+                                            "minLength": 1,
+                                            "type": "string",
+                                            "x-pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*"
+                                        },
+                                        "refValue": {
+                                            "description": "The field value, expressed as the identifier of another object.",
+                                            "maxLength": 256,
+                                            "minLength": 1,
+                                            "type": "string",
+                                            "x-pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*"
+                                        },
+                                        "stringValue": {
+                                            "description": "The field value, expressed as a String.",
+                                            "maxLength": 10240,
+                                            "minLength": 0,
+                                            "type": "string",
+                                            "x-pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*"
+                                        }
+                                    },
+                                    "required": [
+                                        "key"
+                                    ],
+                                    "type": "object"
+                                },
+                                "type": "array"
+                            },
+                            "id": {
+                                "description": "The ID of the object.",
+                                "maxLength": 1024,
+                                "minLength": 1,
+                                "type": "string",
+                                "x-pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*"
+                            },
+                            "name": {
+                                "description": "The name of the object.",
+                                "maxLength": 1024,
+                                "minLength": 1,
+                                "type": "string",
+                                "x-pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*"
+                            }
+                        },
+                        "required": [
+                            "id",
+                            "name",
+                            "fields"
+                        ],
+                        "type": "object"
+                    },
+                    "type": "array"
+                }
+            },
+            "required": [
+                "pipelineId",
+                "pipelineObjects"
+            ],
+            "type": "object"
+        },
+        "X_Amz_Content_Sha256": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Date": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Algorithm": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Credential": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Security_Token": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Signature": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_SignedHeaders": {
+            "required": false,
+            "type": "string"
+        }
+    }
+}
